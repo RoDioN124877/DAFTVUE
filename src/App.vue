@@ -2,17 +2,17 @@
   <div id="header">
     <section v-if="isMenuOpen" class="burger-menu">
       <div></div>
-      <div>
+      <div class="burger-menu-container">
         <img class="burger-logo" src="/public/img/header/burger/logo.png" alt="" />
         <ul>
           <li><a href="#immediate">БЛИЖАЙШИЕ ШОУ</a></li>
           <li><a href="#merch">МЕРЧ</a></li>
           <li><a href="#other">OTHER</a></li>
         </ul>
-        <img src="/public/img/header/burger/bust.png" alt="" />
+        <img class="bust" src="/public/img/header/burger/bust.png" alt="" />
       </div>
       <li @click="toggleMenu">
-        <img class="menu__img" src="/public/img/header/nav/menu.png" alt="" />
+        <img class="menu-img-burger" src="/public/img/header/nav/menu.png" alt="" />
       </li>
     </section>
 
@@ -57,27 +57,27 @@
         <h2>БЛИЖАЙШИЕ CLUB ШОУ</h2>
         <div class="event_container">
           <div class="event">
-            <p>1</p>
+            <p>April</p>
             <button>Купить билет</button>
           </div>
           <div class="event">
-            <p>1</p>
+            <p>May</p>
             <button>Купить билет</button>
           </div>
           <div class="event">
-            <p>1</p>
+            <p>SOON</p>
             <button>Купить билет</button>
           </div>
           <div class="event">
-            <p>1</p>
+            <p>SOON</p>
             <button>Купить билет</button>
           </div>
           <div class="event">
-            <p>1</p>
+            <p>SOON</p>
             <button>Купить билет</button>
           </div>
           <div class="event">
-            <p>1</p>
+            <p>SOON</p>
             <button>Купить билет</button>
           </div>
         </div>
@@ -215,19 +215,79 @@ const toggleMenu = () => {
   max-width: 1440px;
   margin: auto;
 }
+.burger-menu .bust {
+  width: 300px;
+}
+.burger-menu-container {
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 1440px;
+  margin: auto;
+}
+.menu-img-burger {
+  width: 46px;
+  margin-top: 10px;
+}
 .burger-menu .burger-logo {
-  max-width: 500px;
+  max-width: 300px;
 }
 .burger-menu div ul {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 100px;
+  gap: 50px;
 }
 .burger-menu div ul li a {
   font-weight: 700;
   font-size: 24px;
   color: white;
+}
+@media (max-width: 1050px) {
+  .burger-menu {
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+    max-width: 1440px;
+    margin: auto;
+  }
+  .burger-menu .bust {
+    width: 200px;
+  }
+  .burger-menu-container {
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 1440px;
+    margin: auto;
+  }
+  .menu-img-burger {
+    width: 26px;
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+  }
+  .menu__img {
+    width: 26px;
+  }
+  .burger-menu .burger-logo {
+    max-width: 200px;
+  }
+  .burger-menu div ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 50px;
+  }
+  .burger-menu div ul li a {
+    font-weight: 700;
+    font-size: 24px;
+    color: white;
+  }
 }
 header {
   max-width: 1440px;
@@ -331,6 +391,7 @@ header section .right__header ul {
     display: flex;
   }
 }
+
 .photo {
   background-image: url('/public/img/main/maitPhoto.png');
   background-size: cover;
@@ -340,7 +401,13 @@ header section .right__header ul {
   height: 1000px;
   margin: 100px auto 0px auto;
 }
-
+@media (max-width: 700px) {
+  .photo {
+    width: 100%;
+    height: 280px;
+    margin: 100px auto 0px auto;
+  }
+}
 .immediate {
   display: flex;
   flex-direction: column;
@@ -387,18 +454,6 @@ header section .right__header ul {
   flex-direction: column;
   position: relative;
 }
-.immediate .event_container::after {
-  content: '';
-  width: 1300px;
-  height: 1400px;
-  background-image: url('/public/img/main/immediate/lightning.png');
-  background-size: 100%;
-  background-repeat: no-repeat;
-  position: absolute;
-  top: -275px;
-  right: 20px;
-  pointer-events: none;
-}
 .immediate .event_container .event {
   width: 100%;
   display: flex;
@@ -422,6 +477,19 @@ header section .right__header ul {
   left: -1px;
   color: white;
 }
+.immediate .event_container::after {
+  content: '';
+  width: 1300px;
+  height: 1400px;
+  background-image: url('/public/img/main/immediate/lightning.png');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -275px;
+  right: 20px;
+  pointer-events: none;
+}
+
 .immediate .event_container .event button {
   height: 70px;
   width: 210px;
@@ -441,29 +509,49 @@ header section .right__header ul {
 }
 
 @media (max-width: 1050px) {
+  .immediate::after {
+    content: '';
+    width: 1000px;
+    height: 1020px;
+    background-image: url('/public/img/main/immediate/chain2.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0px;
+    bottom: -150px;
+    pointer-events: none;
+  }
+}
+@media (max-width: 1000px) {
+  .immediate h2 {
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    font-size: 33px;
+  }
   .immediate::before {
     content: '';
-    width: 200px;
-    height: 200px;
+    width: 150px;
+    height: 150px;
     background-image: url('/public/img/main/immediate/bust1.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
     left: 0px;
-    top: -120px;
+    top: -100px;
     pointer-events: none;
     z-index: -1;
   }
   .immediate::after {
     content: '';
-    width: 220px;
-    height: 200px;
+    width: 170px;
+    height: 150px;
     background-image: url('/public/img/main/immediate/bust2.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
     right: 0px;
-    top: -120px;
+    top: -100px;
     pointer-events: none;
     z-index: -1;
   }
@@ -492,18 +580,92 @@ header section .right__header ul {
   }
 }
 @media (max-width: 500px) {
+  .immediate::before {
+    content: '';
+    width: 140px;
+    height: 140px;
+    background-image: url('/public/img/main/immediate/bust1.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    left: 0px;
+    top: -100px;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .immediate::after {
+    content: '';
+    width: 150px;
+    height: 150px;
+    background-image: url('/public/img/main/immediate/bust2.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    right: 0px;
+    top: -100px;
+    pointer-events: none;
+    z-index: -1;
+  }
+  .immediate h2 {
+    color: white;
+    text-align: center;
+    font-weight: 700;
+    font-size: 26px;
+  }
   .immediate .event_container::after {
     content: '';
-    width: 300px;
-    height: 800px;
+    width: 200px;
+    height: 500px;
     background-image: url('/public/img/main/immediate/bust3.png');
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
-    top: 160px;
-    right: 25%;
+    top: -14px;
+    right: 28%;
     pointer-events: none;
+  }
+  .immediate .event_container {
+    width: 100%;
+    gap: 2rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .immediate .event_container .event {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    z-index: 1;
+  }
+  .immediate .event_container .event p {
+    color: red;
+    position: relative;
+    height: 21px;
+    font-weight: 500;
+    font-size: 16px;
+  }
+  .immediate .event_container .event p::after {
+    content: '_______';
+    width: 0.5rem;
+    height: 1rem;
+    position: absolute;
+    bottom: -1rem;
+    left: -1px;
+    color: white;
+  }
+  .immediate .event_container .event button {
+    height: 36px;
+    width: 125px;
+    background-color: #1a1a1a;
+    border-radius: 0.5rem;
+    border: 0;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
   }
 }
 .previe {
@@ -515,7 +677,17 @@ header section .right__header ul {
   height: 1000px;
   margin: 150px auto 0px auto;
 }
-
+@media (max-width: 500px) {
+  .previe {
+    background-image: url('/public/img/main/previe.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 500px;
+    height: 300px;
+    margin: 50px auto 0px auto;
+  }
+}
 .merch {
   max-width: 1440px;
   display: flex;
@@ -574,7 +746,35 @@ header section .right__header ul {
   font-weight: 300;
   font-size: 28px;
 }
-
+.merch .merch__container .merch__block img {
+  width: 330px;
+}
+@media (max-width: 700px) {
+  .merch .merch__container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    -moz-column-gap: 150px;
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+  .merch .merch__container .merch__block {
+    border: 1px solid white;
+    padding: 0px 0px 10px 0px;
+    border-radius: 10px;
+  }
+  .merch .merch__container .merch__block p {
+    color: white;
+    text-align: center;
+    font-weight: 300;
+    font-size: 20px;
+  }
+  .merch .merch__container .merch__block img {
+    width: 150px;
+    border-radius: 10px;
+  }
+}
 .previe2 {
   background-image: url('/public/img/main/previe2.png');
   background-size: cover;
@@ -586,7 +786,19 @@ header section .right__header ul {
   z-index: 1;
   margin: 200px auto 0px auto;
 }
-
+@media (max-width: 500px) {
+  .previe2 {
+    background-image: url('/public/img/main/previe2.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 500px;
+    height: 300px;
+    position: relative;
+    z-index: 1;
+    margin: 200px auto 0px auto;
+  }
+}
 .logo {
   background-image: url('/public/img/main/logo.png');
   background-size: cover;
@@ -611,7 +823,24 @@ header section .right__header ul {
   justify-content: center;
   align-items: center;
 }
-
+@media (max-width: 500px) {
+  .make__some__noize {
+    background-image: url('/public/img/main/msn/background.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 500px;
+    height: 300px;
+    margin: 100px auto 0px auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .make__some__noize img {
+    width: 160px;
+    height: 120px;
+  }
+}
 .other {
   display: flex;
   flex-direction: column;
@@ -634,6 +863,36 @@ header section .right__header ul {
   display: flex;
   flex-direction: column;
   position: relative;
+}
+.other .event_container .event {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  z-index: 1;
+}
+.other .event_container .event p {
+  color: red;
+  position: relative;
+  height: 21px;
+  font-weight: 500;
+  font-size: 24px;
+  width: 150px;
+  text-align: center;
+}
+.other .event_container .event button {
+  height: 70px;
+  width: 210px;
+  background-color: #1a1a1a;
+  border-radius: 1.3rem;
+  border: 0;
+  color: white;
+  font-weight: 500;
+  font-size: 24px;
+}
+.other .event_container .event button:hover {
+  cursor: pointer;
+  background-color: #131212;
 }
 .other .event_container::after {
   content: '';
@@ -659,32 +918,7 @@ header section .right__header ul {
   left: 13rem;
   pointer-events: none;
 }
-.other .event_container .event {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  z-index: 1;
-}
-.other .event_container .event p {
-  color: red;
-  position: relative;
-  height: 21px;
-  font-weight: 500;
-  font-size: 24px;
-  width: 150px;
-  text-align: center;
-}
-.other .event_container .event button {
-  height: 70px;
-  width: 210px;
-  background-color: rgba(255, 255, 255, 0);
-  border: 1px solid white;
-  color: white;
-  padding: 8px 16px;
-  font-weight: 500;
-  font-size: 24px;
-}
+
 .other .event_container .event button:active {
   transform: scale(1.03);
 }
@@ -692,7 +926,7 @@ header section .right__header ul {
   cursor: pointer;
 }
 
-@media (max-width: 1050px) {
+@media (max-width: 1000px) {
   .other .event_container .event button {
     height: 50px;
     width: 150px;
@@ -717,7 +951,7 @@ header section .right__header ul {
   }
   .other .event_container::before {
     content: '';
-    width: 500px;
+    width: 900px;
     height: 1100px;
     background-image: url('/public/img/main/other/lighting.png');
     background-size: 100%;
@@ -731,52 +965,116 @@ header section .right__header ul {
 @media (max-width: 800px) {
   .other .event_container::after {
     content: '';
-    width: 600px;
-    height: 500px;
+    width: 800px;
+    height: 800px;
     background-image: url('/public/img/main/other/lighting2.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
-    bottom: -210px;
-    left: -11rem;
+    bottom: -310px;
+    left: -6rem;
     pointer-events: none;
   }
   .other .event_container::before {
     content: '';
-    width: 600px;
+    width: 740px;
     height: 1100px;
     background-image: url('/public/img/main/other/lighting.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
     top: -275px;
-    left: -11rem;
+    left: -4rem;
     pointer-events: none;
   }
 }
 @media (max-width: 500px) {
+  .other {
+    margin-top: 50px;
+  }
   .other .event_container::after {
     content: '';
-    width: 500px;
-    height: 500px;
-    background-image: url('/public/img/main/other/lighting2.png');
+    width: 403px;
+    height: 660px;
+    background-image: url('/public/img/main/other/lighting3.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
-    bottom: -210px;
-    left: -11rem;
+    bottom: -238px;
+    left: 0rem;
     pointer-events: none;
   }
   .other .event_container::before {
     content: '';
-    width: 400px;
-    height: 1100px;
+    width: 304px;
+    height: 500px;
     background-image: url('/public/img/main/other/lighting.png');
     background-size: 100%;
     background-repeat: no-repeat;
     position: absolute;
-    top: -105px;
-    left: -5rem;
+    top: -228px;
+    left: 5rem;
+    pointer-events: none;
+  }
+  .other .event_container {
+    width: 100%;
+    gap: 3rem;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .other .event_container .event {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
+    align-items: center;
+    z-index: 1;
+  }
+  .other .event_container .event p {
+    color: red;
+    position: relative;
+    height: 21px;
+    font-weight: 500;
+    font-size: 16px;
+    width: 150px;
+    text-align: center;
+  }
+  .other .event_container .event button {
+    height: 36px;
+    width: 125px;
+    background-color: #1a1a1a;
+    border-radius: 0.5rem;
+    border: 0;
+    color: white;
+    font-weight: 500;
+    font-size: 14px;
+  }
+}
+@media (max-width: 400px) {
+  .other .event_container::after {
+    content: '';
+    width: 405px;
+    height: 660px;
+    background-image: url('/public/img/main/other/lighting3.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    bottom: -168px;
+    left: -2rem;
+    pointer-events: none;
+  }
+  .other .event_container::before {
+    content: '';
+    width: 404px;
+    height: 500px;
+    background-image: url('/public/img/main/other/lighting.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    position: absolute;
+    top: -208px;
+    left: -4rem;
     pointer-events: none;
   }
 }
@@ -791,7 +1089,19 @@ header section .right__header ul {
   z-index: 1;
   margin: 200px auto 0px auto;
 }
-
+@media (max-width: 500px) {
+  .previe3 {
+    background-image: url('/public/img/main/previe3.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    max-width: 500px;
+    height: 300px;
+    position: relative;
+    z-index: 1;
+    margin: 50px auto 0px auto;
+  }
+}
 .info__daft {
   color: white;
   display: flex;
@@ -839,10 +1149,23 @@ header section .right__header ul {
   }
 }
 @media (max-width: 800px) {
+  .info__daft {
+    margin: 100px auto 0px auto;
+  }
   .info__daft::before {
-    width: 26rem;
-    left: 0px;
-    top: -150px;
+    display: none;
+  }
+  .info__daft h2 {
+    font-size: 30px;
+  }
+
+  .info__daft p {
+    font-size: 26px;
+  }
+}
+@media (max-width: 500px) {
+  .info__daft p {
+    font-size: 20px;
   }
 }
 @media (max-width: 400px) {
@@ -870,7 +1193,7 @@ header section .right__header ul {
 
 footer {
   max-width: 1440px;
-  margin: 150px auto;
+  margin: 100px auto;
 }
 footer nav {
   display: flex;
@@ -882,5 +1205,5 @@ footer nav ul {
   align-items: center;
   justify-content: center;
   gap: 5px;
-} /*# sourceMappingURL=main.css.map */
+}
 </style>

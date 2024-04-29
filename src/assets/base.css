@@ -2,6 +2,21 @@
   font-family: 'KGT';
   src: url('/public/fonts/KrasnodarGroteskTrial.otf') format('opentype');
 }
+@font-face {
+  font-family: 'GilroyBlack';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/gilroy-black.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'GilroyMedium';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/gilroy-medium.ttf') format('truetype');
+}
 ::-webkit-scrollbar {
   width: 2px;
 }
@@ -110,7 +125,7 @@ video {
   font-size: 16px;
   font: inherit;
   vertical-align: baseline;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'GilroyBlack', sans-serif;
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
@@ -132,6 +147,7 @@ section {
 
 body {
   line-height: 1;
+  overflow-x: hidden;
 }
 
 ol,
