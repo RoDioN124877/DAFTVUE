@@ -762,7 +762,7 @@ header section .right__header ul {
   .merch .merch__container .merch__block {
     border: 1px solid white;
     padding: 0px 0px 10px 0px;
-    border-radius: 10px;
+    border-radius: 5px;
   }
   .merch .merch__container .merch__block p {
     color: white;
@@ -772,7 +772,7 @@ header section .right__header ul {
   }
   .merch .merch__container .merch__block img {
     width: 150px;
-    border-radius: 10px;
+    border-radius: 5px;
   }
 }
 .previe2 {
@@ -1205,5 +1205,27 @@ footer nav ul {
   align-items: center;
   justify-content: center;
   gap: 5px;
+}
+@media (max-width: 800px) {
+  footer nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+  footer nav ul img {
+    width: 50px;
+  }
+}
+@media (max-width: 500px) {
+  footer nav ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+  }
+  footer nav ul img {
+    width: 30px;
+  }
 }
 </style>
